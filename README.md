@@ -2,7 +2,7 @@
 
 Machine Methods used to detect the 2'-O-methylation in Nanopore directive RNA-seq
 
-# Step1. Training the 2'-O-methylation model from the Nanopore directive RNA-seq of rRNA.
+# Step1. Extract the features of Nanopore directive RNA-seq of rRNA.
 # $id means sample of each fast5 file
 # 1.1 split the multiple fast5 to single fast5 files
 multi_to_single_fast5  -i ${id}.fast5 -s $id  --recursive -t 40
@@ -18,3 +18,9 @@ minimap2  -ax map-ont -uf -k14 -x splice -t 20 human_uniq.rRNA.fa    ${id}_guppy
 sam2tsv -r /home/ch220806/Public/hg19/human_uniq.rRNA.fa   ${id}.rRNA.sort.bam >${id}.rRNA.sort.bam.tsv
 # 1.6 Extract the features of fast5 files of Nm sites in mRNA
 python  /home/ch220806/2-O-Me/HEK293_RNA_fast5/fast5/pass/filter_get.fast5.py  -i ${id}.rRNA.sort.bam.tsv -b rRNA.Nm1.bed  -f ${id}_guppy.feature.feature.tsv -o ${id}.fast5.rRNA    .signal.txt   >${id}.rRNA.feature.anno.txt
+
+#Step 2. 
+#Training the 2'-O-methylation model from the Nanopore directive RNA-seq of rRNA.
+
+#Step3.
+#predict the 2'-O-methylation in the mRNA
