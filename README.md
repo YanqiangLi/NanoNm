@@ -16,11 +16,13 @@ python ./software/nanom6A_2021_3_18/extract_raw_and_feature_fast_AUCG.py  --cpu=
 # 1.5 mapping the reads to the rRNA
 minimap2  -ax map-ont -uf -k14 -x splice -t 20 human_uniq.rRNA.fa    ${id}_guppy.feature.feature.fa|samtools view -@ 20 -bS - |samtools sort -@ 20 -     >${id}.rRNA.sort.bam
 sam2tsv -r /home/ch220806/Public/hg19/human_uniq.rRNA.fa   ${id}.rRNA.sort.bam >${id}.rRNA.sort.bam.tsv
-# 1.6 Extract the features of fast5 files of Nm sites in mRNA
+# 1.6 Extract the features of fast5 files of Nm sites in rRNA
 python  /home/ch220806/2-O-Me/HEK293_RNA_fast5/fast5/pass/filter_get.fast5.py  -i ${id}.rRNA.sort.bam.tsv -b rRNA.Nm1.bed  -f ${id}_guppy.feature.feature.tsv -o ${id}.fast5.rRNA    .signal.txt   >${id}.rRNA.feature.anno.txt
 
 #Step 2. 
 #Training the 2'-O-methylation model from the Nanopore directive RNA-seq of rRNA.
+cat kmer.txt|xargs -i -e echo "python train_model_scale_pos_weight_Nm.py  {} >>Auc.scale1.txt & " |sh
 
 #Step3.
 #predict the 2'-O-methylation in the mRNA
+python predict_sites_Nm.final1.py   --model ./model --cpu 20  -i all -o C4_2_all.Nm -r  gencode.v27.transcripts.fa  -g GRCh38.p13.genome.fa  -b hg38.gene2transcripts.txt  
