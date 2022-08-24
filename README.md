@@ -7,7 +7,7 @@ Machine Methods used to detect the 2'-O-methylation in Nanopore directive RNA-se
 # 1.1 split the multiple fast5 to single fast5 files
 multi_to_single_fast5  -i ${id}.fast5 -s $id  --recursive -t 40
 # 1.2 base calling using guppy_basecaller
-guppy_basecaller -i ${id}/ -s ${id}_guppy --num_callers 40 --recursive --fast5_out --config rna_r9.4.1_70bps_hac.cfg  --cpu_threads_per_caller 10
+guppy_basecaller -i $id/ -s ${id}_guppy --num_callers 40 --recursive --fast5_out --config rna_r9.4.1_70bps_hac.cfg  --cpu_threads_per_caller 10
 # 1.3 resquiggle the signal of fast5 files to each transcript
 tombo resquiggle --rna --overwrite  ${id}_guppy/workspace/  human_uniq.rRNA.fa    --processes 40 --fit-global-scale --include-event-stdev 
 # 1.4 feature calling of each transcripts
