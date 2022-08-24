@@ -9,9 +9,9 @@ multi_to_single_fast5  -i ${id}.fast5 -s $id  --recursive -t 40
 # 1.2 base calling using guppy_basecaller
 guppy_basecaller --input_path $id --save_path $id_guppy --num_callers 40 --recursive --fast5_out --config rna_r9.4.1_70bps_hac.cfg  --cpu_threads_per_caller 10
 # 1.3 resquiggle the signal of fast5 files to each transcript
-tombo resquiggle --rna --overwrite  ${id}_guppy/workspace/  human_uniq.rRNA.fa    --processes 40 --fit-global-scale --include-event-stdev 
+tombo resquiggle --rna --overwrite  ${id}\_guppy/workspace/  human_uniq.rRNA.fa    --processes 40 --fit-global-scale --include-event-stdev 
 # 1.4 feature calling of each transcripts
-find  ${id}_guppy/workspace/ -name "*.fast5" >${id}_guppy.list
+find  ${id}\_guppy/workspace/ -name "*.fast5" >${id}_guppy.list
 python ./software/nanom6A_2021_3_18/extract_raw_and_feature_fast_AUCG.py  --cpu=30 --fl=${id}_guppy.list -o ${id}_guppy.feature --clip=5
 # 1.5 mapping the reads to the rRNA
 minimap2  -ax map-ont -uf -k14 -x splice -t 20 human_uniq.rRNA.fa    ${id}_guppy.feature.feature.fa|samtools view -@ 20 -bS - |samtools sort -@ 20 -     >${id}.rRNA.sort.bam
