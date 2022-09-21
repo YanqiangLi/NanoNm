@@ -5,7 +5,7 @@
 
 
 # Step0. Install the conda environment first
-conda env create -f Nanopore.environment.yml #install conda environment
+conda env create -f Nanopore.environment.yml                          #install conda environment
 
 # Step1. Extract the features of Nanopore directive RNA-seq of rRNA.
 # $id means sample of each fast5 file
