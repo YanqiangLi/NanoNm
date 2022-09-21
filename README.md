@@ -1,10 +1,9 @@
 # NanoNm
 
-Machine Learning Methods used to detect the 2'-O-methylation in Nanopore directive RNA-seq
+Machine Learning Methods used to detect the 2'-O-methylation in Nanopore direct RNA-seq
 
 # Step0. Install the conda environment first
 conda env create -f Nanopore.environment.yml #install conda environment
-
 
 # Step1. Extract the features of Nanopore directive RNA-seq of rRNA.
 # $id means sample of each fast5 file
