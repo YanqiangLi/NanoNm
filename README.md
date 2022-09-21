@@ -36,7 +36,7 @@ sam2tsv -r ./rRNA/human_uniq.rRNA.fa   ${id}.rRNA.sort.bam >${id}.rRNA.sort.bam.
 ```
 python  filter_get.fast5.py  -i ${id}.rRNA.sort.bam.tsv -b rRNA.Nm1.bed  -f ${id}_guppy.feature.feature.tsv -o ${id}.fast5.rRNA.signal.txt   >${id}.rRNA.feature.anno.txt
 ```
-# Step2. Training the 2'-O-methylation model from the Nanopore directive RNA-seq of rRNA
+# Step2. Training the 2'-O-methylation model from the Nanopore direct RNA-seq of rRNA
 ```
 cat kmer.txt|xargs -i -e echo "python train_model_scale_pos_weight_Nm.py  {} >>Auc.scale1.txt & " |sh
 ```
