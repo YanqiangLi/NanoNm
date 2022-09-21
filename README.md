@@ -8,7 +8,7 @@ Codes developed on the top of  Nanom6A (Gao et al. Genome Biology. 2021, https:/
 ```
 conda env create -f Nanopore.environment.yml      #install conda environment
 ```
-# Step1. Extract the features of Nanopore directive RNA-seq of rRNA.
+# Step1. Extract the features of Nanopore direct RNA-seq of rRNA.
 # $id means sample of each fast5 file
 # 1.1 Split the multiple fast5 to single fast5 files
 ```
