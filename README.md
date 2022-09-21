@@ -2,6 +2,10 @@
 
 Machine Learning Methods used to detect the 2'-O-methylation in Nanopore directive RNA-seq
 
+Step0. Install the conda environment first
+conda env create -f Nanopore.environment.yml #install conda environment
+
+
 # Step1. Extract the features of Nanopore directive RNA-seq of rRNA.
 # $id means sample of each fast5 file
 # 1.1 split the multiple fast5 to single fast5 files
@@ -19,7 +23,7 @@ sam2tsv -r ./rRNA/human_uniq.rRNA.fa   ${id}.rRNA.sort.bam >${id}.rRNA.sort.bam.
 # 1.6 Extract the features of fast5 files of Nm sites in rRNA
 python  filter_get.fast5.py  -i ${id}.rRNA.sort.bam.tsv -b rRNA.Nm1.bed  -f ${id}_guppy.feature.feature.tsv -o ${id}.fast5.rRNA.signal.txt   >${id}.rRNA.feature.anno.txt
 
-# Step 2 Training the 2'-O-methylation model from the Nanopore directive RNA-seq of rRNA.
+# Step2 Training the 2'-O-methylation model from the Nanopore directive RNA-seq of rRNA.
 cat kmer.txt|xargs -i -e echo "python train_model_scale_pos_weight_Nm.py  {} >>Auc.scale1.txt & " |sh
 
 # Step3 Predict the 2'-O-methylation in the mRNA
