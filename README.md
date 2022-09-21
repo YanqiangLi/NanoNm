@@ -35,20 +35,21 @@ sam2tsv -r ./rRNA/human_uniq.rRNA.fa   ${id}.rRNA.sort.bam >${id}.rRNA.sort.bam.
 ```
 python  filter_get.fast5.py  -i ${id}.rRNA.sort.bam.tsv -b rRNA.Nm1.bed  -f ${id}_guppy.feature.feature.tsv -o ${id}.fast5.rRNA.signal.txt   >${id}.rRNA.feature.anno.txt
 ```
-# Step2 Training the 2'-O-methylation model from the Nanopore directive RNA-seq of rRNA
+# Step2. Training the 2'-O-methylation model from the Nanopore directive RNA-seq of rRNA
 ```
 cat kmer.txt|xargs -i -e echo "python train_model_scale_pos_weight_Nm.py  {} >>Auc.scale1.txt & " |sh
 ```
-# Step3 Predict the 2'-O-methylation in the mRNA
+# Step3. Predict the 2'-O-methylation in the mRNA
 ```
-python predict_sites_Nm.final1.py   --model ./model --cpu 20  -i all -o C4_2_all.Nm -r  gencode.v27.transcripts.fa  -g GRCh38.p13.genome.fa  -b hg38.gene2transcripts.txt ``` 
+python predict_sites_Nm.final1.py   --model ./model --cpu 20  -i all -o C4_2_all.Nm -r  gencode.v27.transcripts.fa  -g GRCh38.p13.genome.fa  -b hg38.gene2transcripts.txt 
 
-### Contact
+``` 
+# Contact
 Yanqiang.Li@childrens.harvard.edu
 
 or
 
 Kaifu.Chen@childrens.harvard.edu
 
-<hr>
+
 Copy Right @ Kaifu Chen Lab @ Boston Childrens Hospital / Harvard Medical School
