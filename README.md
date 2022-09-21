@@ -29,3 +29,12 @@ cat kmer.txt|xargs -i -e echo "python train_model_scale_pos_weight_Nm.py  {} >>A
 
 # Step3 Predict the 2'-O-methylation in the mRNA
 python predict_sites_Nm.final1.py   --model ./model --cpu 20  -i all -o C4_2_all.Nm -r  gencode.v27.transcripts.fa  -g GRCh38.p13.genome.fa  -b hg38.gene2transcripts.txt  
+### Contact
+Yanqiang.Li@childrens.harvard.edu
+
+or
+
+Kaifu.Chen@childrens.harvard.edu
+
+<hr>
+Copy Right @ Kaifu Chen Lab @ Boston Childrens Hospital / Harvard Medical School
