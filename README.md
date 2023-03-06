@@ -7,6 +7,9 @@ Codes developed on the top of  Nanom6A (Gao et al. Genome Biology. 2021 https://
 # Step0. Install the conda environment first
 ```
 conda env create -f Nanopore.environment.yml      #install conda environment
+conda install -c bioconda ont-fast5-api #install ont-fast5 for multi_to_single_fast5
+install guppy_basecaller #download software from Nanopore community.
+conda install -c bioconda ont-tombo #install tombo 
 ```
 # Step1. Extract the features of Nanopore direct RNA-seq of rRNA.
 # $id means sample of each fast5 file
