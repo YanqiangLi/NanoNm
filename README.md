@@ -3,6 +3,9 @@
 # A Machine Learning Method to detect the 2'-O-methylation(Nm) in Nanopore direct RNA-seq
 Codes developed on the top of  Nanom6A (Gao et al. Genome Biology. 2021 https://github.com/gaoyubang/nanom6A)
 
+# The Flowchart of NanoNm
+<p>Flowchart of a machine learning model to detect Nm based on Nanopore direct RNA-seq.</p>
+<img src='./Flow_Chart.png' style='margin-left: auto; margin-right: auto;display: block;'></img>
 
 # Step0. Install the conda environment first
 ```
