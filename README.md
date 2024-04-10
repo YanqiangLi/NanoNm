@@ -1,4 +1,4 @@
-# NanoNm
+# NanoNm version 1.0.0
 
 # A Machine Learning Method to detect the 2'-O-methylation(Nm) in Nanopore direct RNA-seq
 Codes developed on the top of  Nanom6A (Gao et al. Genome Biology. 2021 https://github.com/gaoyubang/nanom6A)
