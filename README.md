@@ -2,6 +2,10 @@
 
 # A Machine Learning Method to detect the 2'-O-methylation(Nm) in Nanopore direct RNA-seq
 Codes developed on the top of  Nanom6A (Gao et al. Genome Biology. 2021 https://github.com/gaoyubang/nanom6A)
+# Citation
+If using the software in a publication, please cite the following:
+Yanqiang Li et.al 2′-O-methylation at internal sites on mRNA promotes mRNA stability. Molecular Cell (2024)
+https://www.cell.com/molecular-cell/abstract/S1097-2765(24)00326-5
 
 # The Flowchart of NanoNm
 <p>Flowchart of a machine learning model to detect Nm based on Nanopore direct RNA-seq.</p>
