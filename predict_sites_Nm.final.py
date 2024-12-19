@@ -489,7 +489,7 @@ def run_main():
 	replace_gene(basefl)
 	print("parse bam")
 	# ~ ################################################################################
-	print("3.m6A site to genome sites")
+	print("3.Nm site to genome sites")
 	# ~ read2genome1(basefl)
 	read2genome2(basefl)
 	site2corrd(basefl)
