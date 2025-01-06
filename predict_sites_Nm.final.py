@@ -47,7 +47,7 @@ def predict(tpp,fl1,dir1):
 	for i in range(len(results)):
 		punmod=results[i][0]
 		pmod=results[i][1]
-		if pmod>0.8:
+		if pmod>0.5:
 			output1.write("%s\t%s\t%s\n"%(punmod,pmod,Y[i]))
 		else:
 			output2.write("%s\t%s\t%s\n"%(punmod,pmod,Y[i]))
